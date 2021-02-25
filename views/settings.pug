@@ -1,0 +1,45 @@
+include includes/dashboard-head.pug
+block content 
+body.bg-fainted  
+  section(class="d-wrapper")
+    include includes/dashboard-sidebar.pug 
+    main.main(style="width:100%")
+      include includes/dashboard-nav.pug 
+      div.wrapper 
+        div.wrap.justify-content-between  
+          div.wrap-md-12.wrap-12.pad-10
+            div.wrap.m-b-1
+              div.wrap-md-5 
+                div.m-r-1 
+                  form(class="shadow pad-20 m-b-2 bg-white bold-350 font-1 radius-5"  method="post")
+                    h3.center-text Personal Information 
+                    label(for="name" class="label") Name 
+                    input(type="text" class="input validate pi pad-input input-m-b-1 wa input-border-faint" value=admin.name id="fullName" required) 
+                    label(for="userName" class="label") Username
+                    input(type="text" class="input validate pi pad-input input-m-b-1 wa input-border-faint" value=admin.userName  id="userName" required) 
+                    label(for="email" class="label") Email 
+                    input(type="email" class="input wa pi validate pad-input input-m-b-1 input-border-faint" value=admin.email name="email" id="email" required ) 
+                    label(for="bio" class="label") Bio
+                    div.w-100.editor-style.m-b-2(contenteditable="true" id="content") #{admin.bio}
+                    input(type="submit" id="updateName" class="input wa validate pad-input  input-border-faint bg-submit white-text" value="Update Personal Info")
+              div.wrap-md-5 
+                div.m-r-1 
+                  form(class="shadow pad-20 m-b-2 bg-white bold-350 font-1 radius-5" action="/setup/accounts" method="post")
+                    h3.center-text Password
+                    label(for="name" class="label") Previous Password
+                    input(type="password" class="input validate pad-input input-m-b-1 input-border-faint" autocomplete="false"  id="oldPassword" required) 
+                    label(for="userName" class="label") New Password
+                    input(type="password" class="input validate pad-input input-m-b-1 input-border-faint" autocomplete="false" id="newPassword" required) 
+                    label(for="email" class="label") Confirm Password 
+                    input(type="password" class="input validate pad-input input-m-b-1 input-border-faint" autocomplete="false" id="confirmPassword" required ) 
+                    input(type="submit" class="input validate pad-input  input-border-faint bg-submit white-text" value="Proceed")
+              div.wrap-md-5 
+                form(class="shadow pad-20 m-b-2 bg-white bold-350 font-1 radius-5" action="/profile/avatar" method="post" enctype="multipart/form-data")
+                  label(for="name" class="label") Update Avatar
+                  div#displayImage
+                  input(type="file" class="input validate pad-input input-m-b-1 input-border-faint" name="avatar" id="avatar" required) 
+                  input(type="submit" class="input validate pad-input  input-border-faint bg-submit white-text" value="Change")
+        
+  script(src="/js/toggler.js" type="module") 
+  script(src="/js/easyframer.js" type="module")
+  script(src="/js/customization.js" type="module")

@@ -1,0 +1,18 @@
+include includes/dashboard-head.pug
+block content 
+body.bg-fainted  
+  section(class="d-wrapper")
+    include includes/dashboard-sidebar.pug 
+    main.main(style="width:100%")
+      include includes/dashboard-nav.pug 
+      div.wrapper 
+        div.wrap.justify-content-between  
+          div.wrap-md-8
+            div.m-r-1  
+              h2 Welcome to Bigjara Publisher 
+              p Easily create contents and distribute them on the internet 
+              a(href="/posts" class="button no-border no-outline bg-blue white-text") Create post
+              
+  script(src="/js/toggler.js" type="module") 
+  script(src="/js/easyframer.js" type="module") 
+  script(src="/js/blog.js" type="module") 

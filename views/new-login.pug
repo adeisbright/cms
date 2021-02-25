@@ -1,0 +1,32 @@
+include includes/bigjara-head.pug  
+block content
+  body.coinbase 
+    noscript 
+      h4.white-text Javascript is currently disabled in this browser. Turn it on to access our service 
+    main 
+      section(id="login-form") 
+        div.section-wrapper 
+          div.wrapper 
+            div.wrap(style="padding-top:8rem") 
+              div.wrap-md-4 
+              div.wrap-12.wrap-md-4
+                form(method="post" action="" class="form-shadow bg-white pad-20 m-b-2 radius-5") 
+                 
+                  h2.center-text  ACE BLOG
+                  p.center-text Sign in #[br] to access your account 
+                  if error 
+                    p.center-text(style="color:red") #{error}
+                  div.flex.m-b-1 
+                    i(class="fa fa-user bg-dodgerblue white-text pad-10 w-50px center-text")
+                    input(type="email" placeholder="Email" name="email" id="email" class="input input-border-faint pad-10") 
+                  div.flex.m-b-1 
+                    i(class="fa fa-lock bg-dodgerblue white-text pad-10 w-50px center-text")
+                    input(type="password" placeholder="Password" name="password" id="password" class="input input-border-faint pad-10") 
+                  div.flex.justify-content-between.d-column 
+                    div 
+                      input(type="checkbox" style="margin-right:.25rem" name="remember" value="true") 
+                      label(for="remember" class="label")  Remember me 
+                    a(href="#" class="no-decoration m-b-1") Forgot Password ?  
+                  p Don't have an account ? #[a(href="/register") Sign up]
+                  input(type="submit" class="input input-border-faint pad-10 bg-dodgerblue white-text" value="Sign in")
+              div.wrap-md-4

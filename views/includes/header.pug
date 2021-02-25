@@ -1,0 +1,30 @@
+header
+  section.section-wrapper.fixed-to-top.border-bottom.bg-white.shado
+    div.wrapper 
+      div.wrap.justify-content-between 
+        div.d-md-hide.pad-header
+          a(class="nav-logo logo-text" href="/") ACE BLOG
+          //#[img(class="w-10" src="/images/logo.png" alt="")] 
+        div.d-md-hide.nav-toggle.pad-header
+          button(class="mobile-toggler relative change-toggle " id="mobile-toggler")
+            span 
+            span 
+            span 
+        section(class="mobile-navigations d-md-hide d-nothing out-of-view") 
+          if categories.length > 0 
+            each category in categories 
+              -let categoryUrl = `/${category.name}` 
+              a(href=categoryUrl) #{category.name} 
+          p #[a(href="#" class="button no-border no-outline bg-dark white-text radius-5") Explore our courses]
+        div.d-sm-hide.pad-header 
+          a(class="nav-logo" href="/") #[img(class="w-100 w-10" src="/images/logo.png" alt="")] 
+        nav.d-sm-hide.pad-header 
+          if categories.length > 0 
+            each category in categories 
+              -let categoryUrl = `/${category.name}` 
+              a(href=categoryUrl class="links") #{category.name} 
+          if canLogin 
+            a(href="/u/logout" class="links") Logout 
+          else 
+            a(href="/u/login" class="button no-border no-outline bg-dark white-text radius-5 links") Login
+        block content  

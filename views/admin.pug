@@ -1,0 +1,89 @@
+include includes/bigjara-head.pug
+block content  
+body.bg-fainted  
+  section(class="d-wrapper")
+    include includes/sidebar.pug 
+    main.main
+      div.wrap.bg-dark.justify-content-between.admin-nav 
+        div 
+          p.white-text#tester Welcome back
+        div.relative 
+          div.has-dropdown 
+            a(class="dropdown-button" href="#" style="color:#fff!important")
+              i.fa.fa-user.circle-content.bg-white 
+              span Hello , Admin 
+              i.fa.fa-chevron-down 
+            div.is-drop-content 
+              a(href="" class="") Profile 
+              a(href="" class="") Post 
+              a(href="" class="") Settings 
+              a(href="" class="") Logout 
+
+      div.wrapper 
+        h2.m-b-2 Dashboard 
+        div.wrap.on-boarding.bg-white.m-b-1 
+          div.wrap-md-12
+            div.onboardin
+              div.wrap.justify-content-between  
+                div 
+                  h2 Welcome to Bigjara Publisher 
+                  p We have a lot of useful links to get you started  
+                div 
+                  span #[i.fa.fa-close] Dismiss 
+            div.wrap.justify-content-between 
+              div(class="wrap-md-4") 
+                h3.m-b-1 Get Started 
+                p.m-b-1 #[a(href="" class="no-border no-outline white-text bg-dodgerblue pad-10 m-b-2") Customize your site] 
+                p or #[a(class="" href="") change your theme completely]
+              div(class="wrap-md-4") 
+                h3 Next Step
+                div.steps 
+                  a(href="" class="") #[i.fa.fa-pencil]  Write your first blog post 
+                  a(href="" class="") #[i.fa.fa-plus]  Add an about page  
+                  a(href="" class="") #[i.fa.fa-television]  View your site 
+                  
+              div(class="wrap-md-4") 
+                h3 More actions 
+                div.steps 
+                  a(href="" class="") #[i.fa.fa-pencil]  Manage widgets or menus  
+                  a(href="" class="") #[i.fa.fa-comments]  Turn comments on or off 
+                  a(href="" class="") #[i.fa.fa-graduation-cap]  Learn more about getting started
+        section(class="activities")
+          div.wrap.justify-content-between 
+            div.wrap-md-6 
+              div.m-b-1.m-r-2.m-r-2.bg-white.on-boarding
+                div.wrap.justify-content-between 
+                  h4 At a glance 
+                  i.fa.fa-chevron-up 
+                hr
+                div 
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+              div.m-b-1.m-r-2.m-r-2.bg-white.on-boarding
+                div.wrap.justify-content-between 
+                  h4 At a glance 
+                  i.fa.fa-chevron-up 
+                div 
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post] 
+            div.wrap-md-6 
+              div.m-b-1.bg-white.on-boarding
+                div.wrap.justify-content-between 
+                  h4 At a glance 
+                  i.fa.fa-chevron-up 
+                div 
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post]
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post] 
+              div.m-b-1.bg-white.on-boarding
+                div.wrap.justify-content-between 
+                  h4 At a glance 
+                  i.fa.fa-chevron-up 
+                div 
+                  p #[i.fa.fa-signal] #[a(class="" href="#") 1 post] 
+  //script(src="/js/test.js")

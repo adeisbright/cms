@@ -1,0 +1,67 @@
+include includes/bigjara-head.pug 
+block content 
+body
+  include includes/cousera-navbar.pug 
+  main.after-fixed-elemen
+    section(class="hero-section") 
+      div.wrapper 
+        div.wrap 
+          div.wrap-md-6.welcome
+            div.m-r-2 
+              h2(class="font-2 bold-700") Welcome! 
+          div.wrap-md-6.profile 
+            h3.blue
+            div.profile-small 
+              div.flex.justify-content-between 
+                div.profile-description
+                  h3.desc-header My learning profile 
+                  p I am currently a #[strong software Engineer /]...
+                  p.m-b-2 I want to learn #[a(href="#" class="add-learn no-outline no-border bg-white") #[i.fa.fa-plus]] 
+                  a(href="#" class="small-cta") Edit profile 
+                div.learning-goal 
+                  h3.uppercase.desc-header Learning goal 
+                  p #[i.fa.fa-bar-chart] Level up my skills  
+                  a(href="#" class="small-cta") Edit profile 
+    section(class="activities shadow m-b-2") 
+      div.wrapper 
+        div.wrap 
+          div.wrap-md-6.pad-10.tab-zone
+            a(href="#" class="tab-reveal active-link") Home  
+            a(href="#" class=" tab-reveal") In Progress   
+            a(href="#" class="tab-reveal") Completed 
+    section 
+      div.wrapper 
+        div.wrap.m-b-1.tab.active-content 
+          div.wrap-md-6 
+            div.m-r-1 
+              h2 Section A 
+              p This is our section A. It focuses on everything about A. A is something that comes first 
+              a(class="" href="#") Visit A 
+          div.wrap-md-6 
+            div 
+              h2 Section A 
+              p This is our section A. It focuses on everything about A. A is something that comes first 
+              a(class="" href="#") Visit A
+        div.wrap.m-b-1.tab 
+          div.wrap-md-6 
+            div.m-r-1 
+              h2 Section B
+              p This is our section A. It focuses on everything about A. A is something that comes first 
+              a(class="" href="#") Visit A 
+          div.wrap-md-6 
+            div 
+              h2 Section B
+              p This is our section A. It focuses on everything about A. A is something that comes first 
+              a(class="" href="#") Visit A 
+        div.wrap.tab 
+          div.wrap-md-6 
+            div.m-r-1 
+              h2 Section C
+              p This is our section A. It focuses on everything about A. A is something that comes first 
+              a(class="" href="#") Visit A 
+          div.wrap-md-6 
+            div 
+              h2 Section C
+              p This is our section A. It focuses on everything about A. A is something that comes first 
+              a(class="" href="#") Visit A 
+    script(src="/js/bigjara.js")

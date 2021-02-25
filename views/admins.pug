@@ -1,0 +1,52 @@
+include includes/dashboard-head.pug
+block content 
+body.bg-fainted  
+  section(class="d-wrapper")
+    include includes/dashboard-sidebar.pug 
+    main.main(style="width:100%")
+      include includes/dashboard-nav.pug 
+      div.wrapper 
+        div.wrap.justify-content-between  
+          div.wrap-md-12.wrap-12.pad-10
+            if admins.length === 0 
+              h3 Proceed to creating a street 
+            else 
+              table(class="table table-bordered") 
+                thead 
+                  tr 
+                    th S/N 
+                    th  Name 
+                    th  UserName 
+                    th  Role 
+                tbody 
+                  each admin  , i in admins
+                    tr 
+                      td #{i + 1}
+                      td #{admin.name} 
+                      td #{admin.userName} 
+                      td #{admin.role} 
+        if admin.role === "Admin"
+            div.wrap-md-6.wrap-12
+              section(id="clearance-form")
+                a(href="#" class="fixed-to-bottom modal-trigger" ) 
+                  i(class="fa fa-plus circle-content shadow") 
+                div(class="modal w-100 h-100  z-index-overall   top-0 left-0  wrapper") 
+                  div(class="modal-content wrap-md-4 center-box" data-modal-content-distance-from-top="5" data-modal-content-width="90") 
+                    span(class="close both-hover-with-focus") &times;
+                    form(class="shadow pad-20 m-b-2 bg-white bold-350 font-1 radius-5" action="/setup/accounts" method="post")
+                      h3.center-text Add a new Admin 
+                      label(for="name" class="label") Name 
+                      input(type="text" class="input validate pad-input input-m-b-1 input-border-faint" name="name" id="name" required) 
+                      label(for="userName" class="label") Username
+                      input(type="text" class="input validate pad-input input-m-b-1 input-border-faint" name="userName" id="userName" required) 
+                      label(for="email" class="label") Email 
+                      input(type="email" class="input validate pad-input input-m-b-1 input-border-faint" name="email" id="email" required) 
+                      label(for="Role" class="label") Role 
+                      select(class="input validate pad-input input-m-b-1 input-border-faint" name="role" admin="role" ) 
+                        option(value="Admin") Admin 
+                        option(value="Editor") Editor 
+                        option(value="Author") Author 
+                        option(value="Contributor") Contributor 
+                      input(type="submit" class="input validate pad-input  input-border-faint bg-submit white-text" value="Proceed")
+  script(src="/js/toggler.js" type="module") 
+  script(src="/js/easyframer.js" type="module")

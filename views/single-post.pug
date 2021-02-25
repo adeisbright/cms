@@ -1,0 +1,35 @@
+include includes/bigjara-head.pug
+block content 
+body.bg-fainted
+  main 
+    div.wrapper 
+      div.wrap 
+        div.wrap-md-1 
+        div.wrap-md-10 
+          -let status = post.status === "d" ? "Draft" : "Published"
+          p Status : #{status} 
+          if post.featureImage 
+            -let imageUrl = `/posts/${post.featureImage}` 
+            figure(class="w-100 m-b-2")
+              image(class="w-100 img-rectangular" src=imageUrl alt=`${post.title} feature image`)
+          h1 #{post.title} 
+          div.wrap
+            p.m-r-1 Author :  #{post.author.name} 
+            p Date #[small #{post.dateCreated.toDateString()}] 
+          div(data-identifier=`${post._id}` id="postContent" class="m-b-1")
+          //div.tags.m-b-2 
+            each tag in post.tags 
+              a(
+                href=`/posts?tag=${tag}&allpost=true` style="margin-bottom:2rem"
+                class="bg-blue-dark button no-border white-text no-outline radius-5 shadow m-b-2 m-r-1"
+              )  #{tag}
+          button(class="button no-border no-outline bg-red white-text m-b-1" id="deletePost") Delete
+          if true
+            div.wrap-md-6.wrap-12
+              form(class="shadow pad-20 m-b-2 bg-white bold-350 font-1 radius-5"  method="post" enctype="multipart/form-data")
+                label Update Feature Image
+                input(type="file" class="input validate pad-input input-m-b-1 input-border-faint" name="avatar" id="avatar" required) 
+                input(type="submit" class="input validate pad-input  input-border-faint bg-blue-dark white-text" value="Update and publish")
+             
+        div.wrap-md-1 
+  script(src="/js/grabContent.js" type="module") 

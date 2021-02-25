@@ -1,0 +1,68 @@
+include includes/bigjara-head.pug 
+block content 
+body 
+  // If there is not post yet
+  if posts.length === 0
+    main 
+      section.m-b-2 
+        div.wrapper.center-text
+          h1 Bigjara Blogging Software 
+          p Built to help you turn your thoughts into a digital asset
+          a(class="no-border no-outline bg-blue-dark radius-5 button white-text" href="#") Start Blogging
+    include includes/default-footer.pug
+  else 
+    //Navigation 
+    include includes/header.pug 
+    // Hero 
+    section(class="after-fixed-elem section-wrapper m-b-2") 
+      div.wrapper 
+        div.wrap.center-text 
+          div.wrap-md-3
+          div.wrap-12.wrap-md-6 
+            h2.hero-title ACE AFRICA
+            p.hero-text.m-b-2 Delivering enriching contents aimed at  helping individuals , and businesses to grow 
+            p #[a(href="#" class="button c-t-a no-border no-outline bg-dark white-text radius-5") Explore our courses]
+          div.wrap-md-3
+    // Post Listing 
+    main 
+      section.section-wrapper 
+        div.wrapper 
+          h2.latest-post.m-b-2 
+            span Latest Post
+            
+          // The two lines of code below removes html tag from any content
+          - const  tag = /(<([a-zA-Z0-9]+)>?)|(<\/([a-zA-Z0-9]+)>?)/g  
+          - let removeTag = (content , replacement , pattern) => content.replace(pattern , replacement) 
+          div.wrap.m-b-2(style="position:relative") 
+            //Need to determine how many post can be displayed on the home page
+            each post , i in posts 
+                article.wrap-md-4.wrap-12.m-b-2
+                  if true
+                    div.jara-card 
+                      div.jara-card-image 
+                        img(
+                          class="w-100 jara-card-img" 
+                          alt=`${post.title} feature image` 
+                          src=`/posts/${post.featureImage}`
+                        ) 
+                      div.jara-card-body 
+                        div.jara-card-header 
+                          p.m-b-1 
+                            strong.d-vary #{post.category.name} 
+                            small.faint-text #{post.dateCreated.toDateString()} 
+                          h2.jara-card-title  
+                            - let title = post.title.replace(/\s/g , "-")
+                            a(href=`/${post.category.name}/${title}`) #{post.title} 
+                        div.jara-card-content
+                          p.jara-card-text.m-b-2 #{removeTag(post.content.substring(0 , 100) , "" , tag)} ...  
+                          //a(href=`/${post.category.name}/${post.title}` class="bot button no-border no-outline bg-dark white-text radius-5") Continue reading
+                      div.jara-card-footer
+                        div.wrap.justify-content-between.blue-text.pad-10.shadow.bg-white 
+                          a #[i.fa.fa-eye ]  #[span.dark-text #{post.views.length}]
+                          a(href="#" class="liker" data-liker=post._id) #[i.fa.fa-thumbs-o-up] #[span.dark-text#likeValue #{post.likers.length}]
+                          a #[i.fa.fa-share] 
+                          a #[i.fa.fa-comment ] 
+    include includes/default-footer.pug
+    script(src="/js/easyframer.js") 
+    
+

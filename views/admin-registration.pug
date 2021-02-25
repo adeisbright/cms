@@ -1,0 +1,29 @@
+include includes/bigjara-head.pug 
+block content 
+  body.pad-top-44.coinbase(style="overflow-y:hidden") 
+    main
+      div.section-wrapper 
+        div.wrap 
+          div.wrap-md-8  
+            div.jara-card.coinbase.m-r-1
+              
+          div.wrap-md-4.get-bg-md 
+            form(method="post" action="" class="form-shadow bg-white pad-20 m-b-2 radius-5" name="" id="")
+              
+              h1.center-text.registration-title ACE BLOG
+              
+              p.center-text Create your <br/> account for free
+              input(class="validate input input-border-faint pad-10 form-margin" name="email" type="email" id="email" placeholder="Email" required)
+              div.flex.no-margin.w-100
+                input(type="password" placeholder="Password" autocomplete="false" name="password" id="password" class="input input-border-faint pad-10 validate") 
+                i(class="fa fa-low-vision dark-text pad-10 w-50px center-text revealPass" style="background:#ccc")
+              p.label Password must be made of 8+ characters 
+              h3.form-margin
+              div.flex.form-margin 
+                input(type="password" placeholder="Confirm password" autocomplete="false" name="confirmPassword" id="confirmPassword" class="validate input input-border-faint pad-10") 
+                i(class="fa fa-low-vision dark-text  pad-10 w-50px center-text revealPass" style="background:#ccc")
+              p.label Already have an account ? #[a(class="form-link underline " href="/login")  Sign in]
+              input(class="input input-border-faint pad-10 input-m-b-1 coinbase medium-text white-text" type="submit" id="submit" value="Create account")
+              p.label By clicking on Create Account  , you agree to the rules and regulations binding this investment platform
+            p.center-text.white-text.label &copy; ACE AFRICA 2020 
+    script(src="/js/registration.js" type="module")

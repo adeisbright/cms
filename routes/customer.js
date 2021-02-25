@@ -1,0 +1,12 @@
+const express = require("express") 
+const router = express.Router() 
+const AdminController = require("../controller/adminController") 
+const FileController = require("../controller/fileController") 
+const CustomerController = require("../controller/customerController")
+router.get("/customers" , AdminController.checkIfLogin ,  CustomerController.getCustomers)   
+router.post("/customers" , CustomerController.addCustomers) 
+router.post("/customers-delete" , CustomerController.deleteCustomer) 
+router.post("/customers-edit" , AdminController.checkIfLogin , CustomerController.editCustomer)   
+router.get("/customers-categories" , CustomerController.getCustomerCategory) 
+router.post("/customers-categories" , CustomerController.createCustomerCategory)
+module.exports = router

@@ -1,0 +1,65 @@
+include includes/bigjara-head.pug 
+block content 
+body 
+  include includes/header.pug
+  main.after-fixed-elem 
+    div.wrapper 
+      div.wrap 
+        
+        div.wrap-md-2 
+        div.wrap-md-8.wrap-12.m-b-5(style="position:relative")  
+          if post.featureImage 
+            -let imageUrl = `/posts/${post.featureImage}` 
+            figure(class="w-100 m-b-2")
+              image(class="w-100 img-rectangular" src=imageUrl alt=`${post.title} feature image`)
+          h1.jara-card-title #{post.title} 
+          div.wrap 
+            p.m-r-1 Author :  #{post.author.name} 
+            p Date #[small #{post.dateCreated.toDateString()}] 
+          div(data-identifier=`${post._id}` id="postContent" class="m-b-10") 
+          div.jara-card-footer
+            div.wrap.justify-content-between.dark-text.pad-10.bg-white 
+              a #[i.fa.fa-eye ] #[span #{post.views.length}]
+              a(href="#" id="liker" class="liker" data-liker=post._id) #[i.fa.fa-thumbs-o-up]  #[span#likeValue #{post.likers.length}]
+              a #[i.fa.fa-share] 0
+              a #[i.fa.fa-comment ] 0
+          
+        div.wrap-md-2 
+        //About the author 
+        div.wrap-md-2 
+        div.wrap-md-6.wrap-12.m-b-5 
+          h2.jara-card-title.m-b-2 About the Author
+          div.border-sorround.radius-5 
+            
+            div.wrap.justify-content-between 
+              - avatarUrl = `/avatars/${post.author.profile}`
+              figure 
+                img(src=avatarUrl class="img-circle") 
+              div.wrapper 
+                strong #{post.author.name} 
+                p #{post.author.bio} 
+      div.wrap 
+        div.wrap-md-2
+        div.wrap-10 
+          h2 Comments #{post.comment.length } 
+          form(method="post" class="wrap-6 m-b-10") 
+            textarea(class="input input-border-faint pad-10 " name="content" rows="5") Add your comment here 
+            button(type="submit" class="button no-border no-outline bg-dark white-text" ) Proceed 
+          //- let comments = post.comment.sort((a , b) => a.date.getTime() >= b.date.getTime())
+          each comment in post.comment 
+            div.comment 
+              - let commentator  = "Anonyomous" 
+              if comment.commentBy
+                commentator = "Adeleke Bright"
+              div.wrap.justify-content-between 
+                h4.commentator #{commentator} 
+                small #{comment.date.toDateString()}
+              p.comment-body #{comment.body} 
+              button(class="button bg-dark no-border no-outline white-text m-r-1" ) #[i.fa.fa-thumbs-o-up] Like 0
+              button(class="button bg-dark no-border no-outline white-text" )  Reply
+                
+    include includes/default-footer.pug
+    script(src="/js/easyframer.js")
+    script(src="/js/grabContent.js" type="module") 
+    script(src="/js/postmanager.js" type="module")
+

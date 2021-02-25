@@ -1,0 +1,23 @@
+1.0 HOME PAGE
+============== 
+   Featuring
+   --------- 
+   Bigjara Blogging Software (bbs.bigjara.com)
+   Built to help you turn your thoughts into a digital asset 
+   Start Blogging 
+   Powered by Bigjara 
+
+
+Enabling authors to reach their target audience 
+Powering organizations to reach their customers 
+
+2.0 Building the Editor 
+======================= 
+   The user can upload images to be part of the post.
+   More than one image means creation of Bigjara carousel.
+   For now , my engineering capability is not yet able to break 
+   the problem of streaming files.
+   Although , i'm seriously working on that.
+   The editor can now do quite a lot.
+   I simplified the coding using Array , and functions.
+   
