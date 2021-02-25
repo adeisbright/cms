@@ -16,7 +16,7 @@ const CustomerRouter = require("./routes/customer")
 const app = express();
 app.use(cors())
 //"mongodb://127.0.0.1:27017/blog" 
-let dbName = "mongodb://127.0.0.1:27017/blog" //"mongodb+srv://adeleke:2421994ade@naija-swag-k5j0g.mongodb.net/blog?retryWrites=true&w=majority" 
+let dbName = "mongodb://127.0.0.1:27017/blog" 
 const store           = new MongoDBStore({
   uri :dbName, 
   collection : "sessions"
